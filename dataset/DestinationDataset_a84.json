@@ -1,0 +1,20 @@
+{
+	"name": "DestinationDataset_a84",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Southridge_DataLake",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "southridge_cosmosdb_movies",
+				"container": "southridge"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

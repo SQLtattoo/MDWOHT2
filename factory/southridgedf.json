@@ -1,0 +1,9 @@
+{
+	"name": "southridgedf",
+	"location": "westeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "981cdd7d-a547-4cdc-ac3f-614593ecd497",
+		"tenantId": "f5510f27-4373-4df0-8b26-43abe686fa2d"
+	}
+}
