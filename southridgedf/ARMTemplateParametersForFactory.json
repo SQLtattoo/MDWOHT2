@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "southridgedf"
+		},
+		"CloudSales_AzSQLDB_connectionString": {
+			"value": ""
+		},
+		"CloudStreaming_AzSQLDB_connectionString": {
+			"value": ""
+		},
+		"FourthCoffeeVM_password": {
+			"value": ""
+		},
+		"Southridge_CosmosDb_connectionString": {
+			"value": ""
+		},
+		"Southridge_DataLake_connectionString": {
+			"value": ""
+		},
+		"VanArsdel_SQLVM_connectionString": {
+			"value": ""
+		},
+		"FourthCoffeeVM_properties_typeProperties_host": {
+			"value": "C:\\Rentals"
+		},
+		"FourthCoffeeVM_properties_typeProperties_userId": {
+			"value": "southridge"
+		}
+	}
+}
