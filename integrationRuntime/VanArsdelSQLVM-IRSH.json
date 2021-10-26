@@ -1,0 +1,7 @@
+{
+	"name": "VanArsdelSQLVM-IRSH",
+	"properties": {
+		"type": "SelfHosted",
+		"description": "connection to SQL VM"
+	}
+}
