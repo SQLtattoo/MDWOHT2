@@ -32,6 +32,9 @@
 		"OHSynapseDW_connectionString": {
 			"value": ""
 		},
+		"SouthridgeCustomersCSV_accountKey": {
+			"value": ""
+		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"value": "https://southridgesa.dfs.core.windows.net"
 		},
@@ -40,6 +43,9 @@
 		},
 		"FourthCoffeeVM_properties_typeProperties_userId": {
 			"value": "southridge"
+		},
+		"SouthridgeCustomersCSV_properties_typeProperties_url": {
+			"value": "https://southridgesa.dfs.core.windows.net"
 		},
 		"containerUri": {
 			"value": ""

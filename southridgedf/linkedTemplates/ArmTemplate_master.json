@@ -43,6 +43,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'OHSynapseDW'"
 		},
+		"SouthridgeCustomersCSV_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'SouthridgeCustomersCSV'"
+		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://southridgesa.dfs.core.windows.net"
@@ -54,6 +58,10 @@
 		"FourthCoffeeVM_properties_typeProperties_userId": {
 			"type": "string",
 			"defaultValue": "southridge"
+		},
+		"SouthridgeCustomersCSV_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://southridgesa.dfs.core.windows.net"
 		},
 		"containerUri": {
 			"type": "string",
@@ -103,8 +111,14 @@
 					"OHSynapseDW_connectionString": {
 						"value": "[parameters('OHSynapseDW_connectionString')]"
 					},
+					"SouthridgeCustomersCSV_accountKey": {
+						"value": "[parameters('SouthridgeCustomersCSV_accountKey')]"
+					},
 					"AzureDataLakeStorage1_properties_typeProperties_url": {
 						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"SouthridgeCustomersCSV_properties_typeProperties_url": {
+						"value": "[parameters('SouthridgeCustomersCSV_properties_typeProperties_url')]"
 					}
 				}
 			},
