@@ -19,7 +19,15 @@
 					"name": "SouthridgeStreamingAddresses"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "StreamingCustomersOHDW",
+						"type": "DatasetReference"
+					},
+					"name": "OHSynapseDW"
+				}
+			],
 			"transformations": [
 				{
 					"name": "Join1"
@@ -28,7 +36,7 @@
 					"name": "CustomersAddresses"
 				}
 			],
-			"script": "source(output(\n\t\tCustomerID as string,\n\t\tLastName as string,\n\t\tFirstName as string,\n\t\tPhoneNumber as string,\n\t\tCreatedDate as string,\n\t\tUpdatedDate as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> SouthridgeStreamingCustomers\nsource(output(\n\t\tAddressID as string,\n\t\tCustomerID as string,\n\t\tAddressLine1 as string,\n\t\tAddressLine2 as string,\n\t\tCity as string,\n\t\tState as string,\n\t\tZipCode as string,\n\t\tCreatedDate as string,\n\t\tUpdatedDate as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> SouthridgeStreamingAddresses\nSouthridgeStreamingCustomers, SouthridgeStreamingAddresses join(SouthridgeStreamingCustomers@CustomerID == SouthridgeStreamingAddresses@CustomerID,\n\tjoinType:'inner',\n\tbroadcast: 'auto')~> Join1\nJoin1 derive(SourceSystemId = 1) ~> CustomersAddresses"
+			"script": "source(output(\n\t\tCustomerID as string,\n\t\tLastName as string,\n\t\tFirstName as string,\n\t\tPhoneNumber as string,\n\t\tCreatedDate as string,\n\t\tUpdatedDate as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> SouthridgeStreamingCustomers\nsource(output(\n\t\tAddressID as string,\n\t\tCustomerID as string,\n\t\tAddressLine1 as string,\n\t\tAddressLine2 as string,\n\t\tCity as string,\n\t\tState as string,\n\t\tZipCode as string,\n\t\tCreatedDate as string,\n\t\tUpdatedDate as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> SouthridgeStreamingAddresses\nSouthridgeStreamingCustomers, SouthridgeStreamingAddresses join(SouthridgeStreamingCustomers@CustomerID == SouthridgeStreamingAddresses@CustomerID,\n\tjoinType:'inner',\n\tbroadcast: 'auto')~> Join1\nJoin1 derive(SourceSystemId = 1) ~> CustomersAddresses\nCustomersAddresses sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tstaged: true,\n\tallowCopyCommand: true,\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError',\n\tmapColumn(\n\t\tCustomerID = SouthridgeStreamingCustomers@CustomerID,\n\t\tLastName,\n\t\tFirstName,\n\t\tPhoneNumber,\n\t\tCreatedDate = SouthridgeStreamingCustomers@CreatedDate,\n\t\tUpdatedDate = SouthridgeStreamingCustomers@UpdatedDate,\n\t\tAddressID,\n\t\tCustomerID = SouthridgeStreamingAddresses@CustomerID,\n\t\tAddressLine1,\n\t\tAddressLine2,\n\t\tCity,\n\t\tState,\n\t\tZipCode,\n\t\tCreatedDate = SouthridgeStreamingAddresses@CreatedDate,\n\t\tUpdatedDate = SouthridgeStreamingAddresses@UpdatedDate,\n\t\tSourceSystemId\n\t)) ~> OHSynapseDW"
 		}
 	}
 }

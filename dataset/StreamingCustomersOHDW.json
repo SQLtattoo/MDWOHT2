@@ -1,0 +1,16 @@
+{
+	"name": "StreamingCustomersOHDW",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "OHSynapseDW",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "",
+			"table": "Customers"
+		}
+	}
+}
