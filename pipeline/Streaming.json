@@ -20,7 +20,11 @@
 						"type": "DataFlowReference"
 					},
 					"staging": {
-						"folderPath": ""
+						"linkedService": {
+							"referenceName": "Southridge_DataLake",
+							"type": "LinkedServiceReference"
+						},
+						"folderPath": "staging"
 					},
 					"compute": {
 						"coreCount": 8,
