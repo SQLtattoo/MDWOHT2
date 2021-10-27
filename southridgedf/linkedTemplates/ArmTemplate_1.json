@@ -1096,6 +1096,60 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/SourceDataset_5z2')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Customers')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Data flow1",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "1.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "GetCustomers",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"SouthridgeStreamingCustomers": {},
+									"SouthridgeStreamingAddresses": {},
+									"OHSynapseDW": {}
+								}
+							},
+							"staging": {
+								"linkedService": {
+									"referenceName": "Southridge_DataLake",
+									"type": "LinkedServiceReference"
+								},
+								"folderPath": "staging"
+							},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/dataflows/GetCustomers')]"
+			]
 		}
 	]
 }
