@@ -5,6 +5,12 @@
 		"factoryName": {
 			"value": "southridgedf"
 		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureSynapseAnalytics1_connectionString": {
+			"value": ""
+		},
 		"CloudSales_AzSQLDB_connectionString": {
 			"value": ""
 		},
@@ -22,6 +28,12 @@
 		},
 		"VanArsdel_SQLVM_connectionString": {
 			"value": ""
+		},
+		"OHSynapseDW_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://southridgesa.dfs.core.windows.net"
 		},
 		"FourthCoffeeVM_properties_typeProperties_host": {
 			"value": "C:\\Rentals"
